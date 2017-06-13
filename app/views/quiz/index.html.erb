@@ -1,0 +1,66 @@
+<div class="page-content">
+	<!-- BEGIN PAGE HEADER-->
+	<h1 class="page-title"> Quiz
+	</h1>
+	<div class="page-bar">
+		<ul class="page-breadcrumb">
+			<li>
+				<i class="fa fa-home"></i>
+				<a>Home</a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<span>Quiz</span>
+			</li>
+		</ul>
+	</div>
+	<!-- END PAGE HEADER-->
+	<div class="row">
+		<div class="col-xd-12 col-md-4">
+			<div class="portlet light ">
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-12">		
+							<% if flash[:correct] != nil %>
+								<% if flash[:correct] %>
+									<div class="alert alert-success">
+										Correct Answer
+									</div>
+								<% else %>
+									<div class="alert alert-danger">
+										Incorrect Answer
+									</div>
+								<% end %>
+								<% flash.discard(:correct) %>
+							<% end %>
+							<div>
+								<strong>Pregunta:</strong><br />
+								<%= @question.pregunta.html_safe %>
+							</div>					
+							<br />
+							<div>
+								<%= form_tag({controller: "quiz", action: "answer"}, method: "post") do |f| %>	
+									<p>
+										<strong>Respuesta:</strong><br />
+										<%= hidden_field_tag :question_id, @question.id %>
+										<%= text_field_tag(:respuesta, "", class: "form-control") %>
+									</p>
+								 
+									<p>
+										<%= submit_tag("Contestar", class: "btn btn-success") %>
+										<%= link_to "Another Question", {controller: "quiz", action: "index"}, class: "btn btn-primary" %>
+									</p>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+
+});
+</script>

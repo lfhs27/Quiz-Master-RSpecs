@@ -1,0 +1,45 @@
+<div class="page-content">
+	<!-- BEGIN PAGE HEADER-->
+	<h1 class="page-title"> Preguntas
+		<small>Ver Pregunta</small>
+	</h1>
+	<div class="page-bar">
+		<ul class="page-breadcrumb">
+			<li>
+				<i class="fa fa-home"></i>
+				<a>Home</a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<span>Preguntas</span>
+			</li>
+		</ul>
+	</div>
+	<!-- END PAGE HEADER-->
+	<div class="row">
+		<div class="col-xd-12 col-md-4">
+			<div class="portlet light ">
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-12">							
+							<div>
+								<strong>Pregunta:</strong><br />
+								<%= @question.pregunta.html_safe %>
+							</div>					
+							<br />
+							<div>
+								<strong>Respuesta:</strong><br />
+								<%= @question.respuesta %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+
+});
+</script>

@@ -1,0 +1,60 @@
+<div class="page-content">
+	<!-- BEGIN PAGE HEADER-->
+	<h1 class="page-title"> Preguntas
+		<!--small>subheader</small-->
+	</h1>
+	<div class="page-bar">
+		<ul class="page-breadcrumb">
+			<li>
+				<i class="fa fa-home"></i>
+				<a>Home</a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<span>Preguntas</span>
+			</li>
+		</ul>
+	</div>
+	<!-- END PAGE HEADER-->
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<div class="portlet light ">
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-12">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Pregunta</th>
+										<th>Respuesta</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @questions.each do |question| %>
+									<tr>
+										<td><%= question.pregunta.html_safe %></td>
+										<td><%= question.respuesta %></td>
+										<td>
+											<%= link_to '', question_path(question), class: "btn-xs btn btn-warning fa fa-search" %>
+											<%= link_to '', edit_question_path(question), class: "btn-xs btn btn-primary fa fa-pencil" %>
+											<%= link_to '', question_path(question), method: :delete, data: { confirm: 'Seguro de eliminar la pregunta?' }, class: "btn-xs btn btn-danger fa fa-trash" %>
+										</td>
+									</tr>
+									<% end %>
+								</tbody>
+							</table>
+							
+							<%= link_to 'Agregar Pregunta', new_question_path, class: "btn btn-primary" %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+
+});
+</script>

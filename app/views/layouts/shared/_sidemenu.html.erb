@@ -1,0 +1,23 @@
+<div class="page-sidebar-wrapper">
+	<div class="page-sidebar navbar-collapse collapse">
+		<ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+			<li class="nav-item start <%= controller_name == 'questions' ? 'active open': '' %>">
+				<%= link_to questions_path, class: "nav-link nav-toggle" do %>
+					<i class="fa fa-question-circle"></i>
+					<span class="title">Preguntas</span>
+					<span class="selected"></span>
+					<span class="arrow open"></span>
+				<% end %>
+			</li>
+			<li class="nav-item <%= controller_name == 'quiz' ? 'active open': '' %>">
+				<%= link_to '/quiz', controller: "quiz", action: "index", class: "nav-link nav-toggle" do %>
+					<i class="fa fa-file-text-o"></i>
+					<span class="title">Quiz <%= controller_name %></span>
+					<span class="arrow"></span>
+				<% end %>
+			</li>
+		</ul>
+		<!-- END SIDEBAR MENU -->
+	</div>
+	<!-- END SIDEBAR -->
+</div>

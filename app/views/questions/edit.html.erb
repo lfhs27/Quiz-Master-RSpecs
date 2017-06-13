@@ -1,0 +1,63 @@
+<div class="page-content">
+	<!-- BEGIN PAGE HEADER-->
+	<h1 class="page-title"> Preguntas
+		<small>Editar Pregunta</small>
+	</h1>
+	<div class="page-bar">
+		<ul class="page-breadcrumb">
+			<li>
+				<i class="fa fa-home"></i>
+				<a>Home</a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<span>Preguntas</span>
+			</li>
+		</ul>
+	</div>
+	<!-- END PAGE HEADER-->
+	<div class="row">
+		<div class="col-xd-12 col-md-12">
+			<div class="portlet light ">
+				<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-12">							
+							<%= form_for(@question) do |f| %>
+								<% if @question && @question.errors.any? %>
+									<div class="alert alert-danger">
+										<strong>
+											Se encontraton <%= pluralize(@question.errors.count, "error") %> errores:
+										</strong>
+										<ul>
+											<% @question.errors.full_messages.each do |msg| %>
+											<li><%= msg %></li>
+											<% end %>
+										</ul>
+									</div>
+								<% end %>
+								<p>
+									<%= f.label :pregunta %><br>
+									<%= f.text_area :pregunta, class: 'form-control' %>
+								</p>
+								
+								<p>
+									<%= f.label :respuesta %><br>
+									<%= f.text_field :respuesta, class: 'form-control' %>
+								</p>
+								
+								<p>
+									<%= f.submit 'Actualizar', class: 'btn btn-success' %>
+								</p>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	$('textarea').wysihtml5();
+});
+</script>
